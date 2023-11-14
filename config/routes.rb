@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
   resources :payments
-  post 'payments/success', to: 'payments#success'
+  post 'success_payments', to: 'payments#success', as: 'success_payments'
 end
