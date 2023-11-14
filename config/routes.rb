@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products
   resources :payments
+  post 'payments/success', to: 'payments#success'
 end
