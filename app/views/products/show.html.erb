@@ -1,19 +1,23 @@
 <h1><%= @product.title %></h1>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong>Price:</strong>
   <%= @product.quantity %>
 </p>
-<%= form_tag success_payments_path, method: 'post' do %>
+<%= form_tag payments_path, method: 'post' do %>
+  <%= hidden_field_tag :product_title, @product.title %>
+  <%= hidden_field_tag :product_quantity, @product.quantity %>
+
   <script
     src="https://checkout.stripe.com/checkout.js"
     class="stripe-button"
-    data-key="<%=  Rails.application.credentials.stripe[:public_key] %>"
+    data-key="<%= Rails.application.credentials.stripe[:public_key] %>"
     data-description="<%= @product.title %>"
     data-amount="<%= @product.quantity * 100 %>"
     data-locale="auto"
   ></script>
 <% end %>
+
 
 <%= link_to 'Back', products_path %>
 <%= link_to 'Edit', edit_product_path %>
