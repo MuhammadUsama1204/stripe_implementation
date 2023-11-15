@@ -2,18 +2,18 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.quantity %>
+  <%= @product.price %>
 </p>
 <%= form_tag payments_path, method: 'post' do %>
   <%= hidden_field_tag :product_title, @product.title %>
-  <%= hidden_field_tag :product_quantity, @product.quantity %>
+  <%= hidden_field_tag :product_price, @product.price %>
 
   <script
     src="https://checkout.stripe.com/checkout.js"
     class="stripe-button"
     data-key="<%= Rails.application.credentials.stripe[:public_key] %>"
     data-description="<%= @product.title %>"
-    data-amount="<%= @product.quantity * 100 %>"
+    data-amount="<%= @product.price * 100 %>"
     data-locale="auto"
   ></script>
 <% end %>

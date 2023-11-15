@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
       })
       price = Stripe::Price.create({
         product: product.id,
-        unit_amount: params[:product_quantity],  
+        unit_amount: params[:product_price],  
         currency: 'usd',
       })
       session[:stripe_customer_id] = customer.id
