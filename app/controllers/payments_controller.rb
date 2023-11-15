@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
     begin
       customer = Stripe::Customer.create({
         email: current_user.email, 
+        source: params[:stripeToken],
         name: 'usama',
       })      
      product = Stripe::Product.create({
