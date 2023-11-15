@@ -75,3 +75,5 @@ gem "devise", "~> 4.9"
 
 gem "stripe", "~> 9.0"
 gem "pay", "~> 6.8"
+
+gem "byebug", "~> 11.1"
